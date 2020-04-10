@@ -36,7 +36,7 @@ public class OutputView {
 			Menu menu = order.getKey();
 			OrderCount orderCount = order.getValue();
 			System.out.printf("%s | %d | %,d ₩\n", menu.getName(), orderCount.getCount(),
-					menu.calculatePrice(orderCount.getCount()));
+					menu.calculatePrice(orderCount));
 		}
 		System.out.println();
 	}

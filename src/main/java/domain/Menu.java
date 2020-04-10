@@ -19,8 +19,8 @@ public class Menu {
 		return this.number == number;
 	}
 
-	public int calculatePrice(int orderCount) {
-		return price * orderCount;
+	public int calculatePrice(OrderCount orderCount) {
+		return price * orderCount.getCount();
 	}
 
 	public String getName() {
