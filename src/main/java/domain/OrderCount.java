@@ -23,6 +23,10 @@ public class OrderCount {
 		return new OrderCount(count + addedCount.count);
 	}
 
+	public int getCount() {
+		return count;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)

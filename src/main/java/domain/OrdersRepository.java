@@ -26,6 +26,13 @@ public class OrdersRepository {
 	}
 
 	public static Orders findOrdersBy(Table table) {
-		return tableOrders.get(table);
+		if (tableOrders.containsKey(table)) {
+			return tableOrders.get(table);
+		}
+		throw new IllegalArgumentException("주문이 존재하지 않습니다.");
+	}
+
+	public static Map<Table, Orders> getTableOrders() {
+		return tableOrders;
 	}
 }

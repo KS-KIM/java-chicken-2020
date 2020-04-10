@@ -1,6 +1,6 @@
 package domain;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -10,7 +10,7 @@ public class Orders {
 	private final Map<Menu, OrderCount> orders;
 
 	public Orders() {
-		this.orders = new HashMap<>();
+		this.orders = new LinkedHashMap<>();
 	}
 
 	public void insertOrUpdateOrder(Menu menu, OrderCount count) {
@@ -36,6 +36,10 @@ public class Orders {
 
 	public OrderCount findOrderCountBy(Menu menu) {
 		return orders.get(menu);
+	}
+
+	public Map<Menu, OrderCount> getOrders() {
+		return orders;
 	}
 
 	@Override

@@ -9,11 +9,11 @@ public class InputView {
 	}
 
 	public static int inputOperation() {
-		System.out.println("##메인화면\n" +
-				"1-주문등록\n" +
-				"2-결제하기\n" +
-				"3-프로그램종료\n\n" +
-				"##원하는기능을선택하세요.");
+		System.out.println("## 메인화면\n" +
+				"1 - 주문 등록\n" +
+				"2 - 결제하기\n" +
+				"3 - 프로그램 종료\n\n" +
+				"## 원하는 기능을 선택하세요.");
 		return Integer.parseInt(scanner.nextLine());
 	}
 
