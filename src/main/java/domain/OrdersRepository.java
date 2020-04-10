@@ -32,6 +32,10 @@ public class OrdersRepository {
 		throw new IllegalArgumentException("주문이 존재하지 않습니다.");
 	}
 
+	public static void removeBy(Table table) {
+		tableOrders.remove(table);
+	}
+
 	public static Map<Table, Orders> getTableOrders() {
 		return tableOrders;
 	}

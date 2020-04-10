@@ -19,6 +19,10 @@ public class Menu {
 		return this.number == number;
 	}
 
+	public boolean isChicken() {
+		return category.isChicken();
+	}
+
 	public int calculatePrice(OrderCount orderCount) {
 		return price * orderCount.getCount();
 	}

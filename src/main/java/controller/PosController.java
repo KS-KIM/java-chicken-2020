@@ -6,6 +6,7 @@ import domain.OrderCount;
 import domain.Orders;
 import domain.OrdersRepository;
 import domain.PaymentType;
+import domain.PosCalculateRule;
 import domain.Table;
 import domain.TableRepository;
 import view.InputView;
@@ -33,7 +34,10 @@ public class PosController {
 		Orders orders = OrdersRepository.findOrdersBy(table);
 		OutputView.printOrders(orders);
 
+		PosCalculateRule posCalculateRule = new PosCalculateRule(orders.getOrders());
 		PaymentType paymentType = PaymentType.of(InputView.inputPaymentType(table));
+		OutputView.printPaymentPrice(posCalculateRule.calculate(paymentType));
+		OrdersRepository.removeBy(table);
 	}
 
 	public static void exitProgram() {

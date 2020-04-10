@@ -41,6 +41,10 @@ public class OutputView {
 		System.out.println();
 	}
 
+	public static void printPaymentPrice(int price) {
+		System.out.printf("## 최종 결제할 금액\n%,d ₩\n", price);
+	}
+
 	public static void printError(String message) {
 		System.err.println(message);
 	}
