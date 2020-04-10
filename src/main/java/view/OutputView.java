@@ -25,6 +25,10 @@ public class OutputView {
 		printLine(BOTTOM_LINE, size);
 	}
 
+	public static void printError(String message) {
+		System.err.println(message);
+	}
+
 	public static void printMenus(final List<Menu> menus) {
 		for (final Menu menu : menus) {
 			System.out.println(menu);

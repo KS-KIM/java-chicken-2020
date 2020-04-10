@@ -10,17 +10,13 @@ class OrdersRepositoryTest {
 	@DisplayName("테이블에 기존 주문이 있는 경우 테이블에 메뉴 추가")
 	@Test
 	void insertOrUpdateOrder_AlreadyExistTable() {
-		Table table1 = TableRepository.findTableById(1)
-				.orElseThrow(() -> new IllegalArgumentException("테이블이 존재하지 않음"));
-		Menu menu1 = MenuRepository.findMenuById(2)
-				.orElseThrow(() -> new IllegalArgumentException("메뉴가 존재하지 않음"));
+		Table table1 = TableRepository.findTableById(1);
+		Menu menu1 = MenuRepository.findMenuById(2);
 		OrderCount orderCount1 = new OrderCount(95);
 		OrdersRepository.insertOrUpdateOrder(table1, menu1, orderCount1);
 
-		Table table2 = TableRepository.findTableById(1)
-				.orElseThrow(() -> new IllegalArgumentException("테이블이 존재하지 않음"));
-		Menu menu2 = MenuRepository.findMenuById(1)
-				.orElseThrow(() -> new IllegalArgumentException("메뉴가 존재하지 않음"));
+		Table table2 = TableRepository.findTableById(1);
+		Menu menu2 = MenuRepository.findMenuById(1);
 		OrderCount orderCount2 = new OrderCount(95);
 		OrdersRepository.insertOrUpdateOrder(table2, menu2, orderCount2);
 
@@ -33,10 +29,8 @@ class OrdersRepositoryTest {
 	@DisplayName("테이블에 기존 주문이 없는 경우 테이블에 메뉴 추가")
 	@Test
 	void insertOrUpdateOrder_NotExistTable() {
-		Table table = TableRepository.findTableById(2)
-				.orElseThrow(() -> new IllegalArgumentException("테이블이 존재하지 않음"));
-		Menu menu = MenuRepository.findMenuById(1)
-				.orElseThrow(() -> new IllegalArgumentException("메뉴가 존재하지 않음"));
+		Table table = TableRepository.findTableById(2);
+		Menu menu = MenuRepository.findMenuById(1);
 		OrderCount orderCount = new OrderCount(95);
 		OrdersRepository.insertOrUpdateOrder(table, menu, orderCount);
 

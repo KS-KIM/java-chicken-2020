@@ -3,7 +3,6 @@ package domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class MenuRepository {
 	private static final List<Menu> menus = new ArrayList<>();
@@ -23,9 +22,10 @@ public class MenuRepository {
 		return Collections.unmodifiableList(menus);
 	}
 
-	public static Optional<Menu> findMenuById(int number) {
+	public static Menu findMenuById(int number) {
 		return menus().stream()
 				.filter(menu -> menu.isSameNumber(number))
-				.findFirst();
+				.findFirst()
+				.orElseThrow(() -> new IllegalArgumentException("메뉴가 존재하지 않습니다."));
 	}
 }

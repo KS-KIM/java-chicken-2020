@@ -3,7 +3,6 @@ package domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class TableRepository {
 	private static final List<Table> tables = new ArrayList<>();
@@ -21,9 +20,10 @@ public class TableRepository {
 		return Collections.unmodifiableList(tables);
 	}
 
-	public static Optional<Table> findTableById(int number) {
+	public static Table findTableById(int number) {
 		return tables.stream()
 				.filter(table -> table.isSameNumber(number))
-				.findFirst();
+				.findFirst()
+				.orElseThrow(() -> new IllegalArgumentException("테이블이 존재하지 않습니다."));
 	}
 }

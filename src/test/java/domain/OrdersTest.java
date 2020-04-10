@@ -14,7 +14,7 @@ class OrdersTest {
 	void insertOrUpdateOrder_InsertOrder() {
 		Orders orders = new Orders();
 
-		Menu menu = MenuRepository.findMenuById(1).orElseThrow(() -> new IllegalArgumentException("주문이 존재하지 않음"));
+		Menu menu = MenuRepository.findMenuById(1);
 		OrderCount orderCount = new OrderCount(99);
 		orders.insertOrUpdateOrder(menu, orderCount);
 
@@ -26,7 +26,7 @@ class OrdersTest {
 	void insertOrUpdateOrder_UpdateOrder() {
 		Orders orders = new Orders();
 
-		Menu menu = MenuRepository.findMenuById(1).orElseThrow(() -> new IllegalArgumentException("주문이 존재하지 않음"));
+		Menu menu = MenuRepository.findMenuById(1);
 		OrderCount orderCount = new OrderCount(40);
 		orders.insertOrUpdateOrder(menu, orderCount);
 		orders.insertOrUpdateOrder(menu, orderCount);
@@ -39,7 +39,7 @@ class OrdersTest {
 	void insertOrUpdateOrder_UpdateOrder_ExceptionThrown() {
 		Orders orders = new Orders();
 
-		Menu menu = MenuRepository.findMenuById(1).orElseThrow(() -> new IllegalArgumentException("주문이 존재하지 않음"));
+		Menu menu = MenuRepository.findMenuById(1);
 		OrderCount orderCount1 = new OrderCount(50);
 		orders.insertOrUpdateOrder(menu, orderCount1);
 
