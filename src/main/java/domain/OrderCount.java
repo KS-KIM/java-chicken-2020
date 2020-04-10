@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class OrderCount {
 	private static final int MIN_COUNT = 1;
 	private static final int MAX_COUNT = 99;
@@ -19,5 +21,20 @@ public class OrderCount {
 
 	public OrderCount add(OrderCount addedCount) {
 		return new OrderCount(count + addedCount.count);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		OrderCount that = (OrderCount)o;
+		return count == that.count;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(count);
 	}
 }

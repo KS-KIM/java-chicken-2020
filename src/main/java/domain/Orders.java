@@ -2,6 +2,7 @@ package domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import exception.OrderAddFailException;
 
@@ -35,5 +36,20 @@ public class Orders {
 
 	public OrderCount findOrderCountBy(Menu menu) {
 		return orders.get(menu);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Orders orders1 = (Orders)o;
+		return Objects.equals(orders, orders1.orders);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(orders);
 	}
 }
