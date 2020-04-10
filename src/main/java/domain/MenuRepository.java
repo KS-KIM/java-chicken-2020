@@ -23,7 +23,9 @@ public class MenuRepository {
 		return Collections.unmodifiableList(menus);
 	}
 
-	public static Optional<Menu> findMenuById(int MenuId) {
-		return Optional.ofNullable(menus.get(MenuId));
+	public static Optional<Menu> findMenuById(int number) {
+		return menus().stream()
+				.filter(menu -> menu.isSameNumber(number))
+				.findFirst();
 	}
 }

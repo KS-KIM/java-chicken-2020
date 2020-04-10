@@ -21,8 +21,9 @@ public class TableRepository {
 		return Collections.unmodifiableList(tables);
 	}
 
-	public static Optional<Table> findTableById(int tableId) {
-		return Optional.ofNullable(tables.get(tableId));
+	public static Optional<Table> findTableById(int number) {
+		return tables.stream()
+				.filter(table -> table.isSameNumber(number))
+				.findFirst();
 	}
-
 }
