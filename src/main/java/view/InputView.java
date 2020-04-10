@@ -2,6 +2,8 @@ package view;
 
 import java.util.Scanner;
 
+import domain.Table;
+
 public class InputView {
 	private static final Scanner scanner = new Scanner(System.in);
 
@@ -29,6 +31,11 @@ public class InputView {
 
 	public static int inputOrderCount() {
 		System.out.println("## 메뉴의 수량을 입력하세요.");
+		return Integer.parseInt(scanner.nextLine());
+	}
+
+	public static int inputPaymentType(Table table) {
+		System.out.printf("## %d번 테이블의 결제를 진행합니다.\n## 신용카드는 1번, 현금은 2번\n", table.getNumber());
 		return Integer.parseInt(scanner.nextLine());
 	}
 }

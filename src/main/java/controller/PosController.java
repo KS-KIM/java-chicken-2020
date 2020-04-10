@@ -5,6 +5,7 @@ import domain.MenuRepository;
 import domain.OrderCount;
 import domain.Orders;
 import domain.OrdersRepository;
+import domain.PaymentType;
 import domain.Table;
 import domain.TableRepository;
 import view.InputView;
@@ -31,6 +32,8 @@ public class PosController {
 
 		Orders orders = OrdersRepository.findOrdersBy(table);
 		OutputView.printOrders(orders);
+
+		PaymentType paymentType = PaymentType.of(InputView.inputPaymentType(table));
 	}
 
 	public static void exitProgram() {
