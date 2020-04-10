@@ -13,6 +13,10 @@ public class OutputView {
 	private OutputView() {
 	}
 
+	public static void printRetryInputOperation() {
+		System.out.println("## 잘못 입력하셨습니다. 다시 입력하세요.");
+	}
+
 	public static void printTables(final List<Table> tables) {
 		System.out.println("## 테이블 목록");
 		final int size = tables.size();
